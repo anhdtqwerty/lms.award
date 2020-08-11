@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Card from '~/modules/gallery/card/ShowCaseCard.vue'
+import Card from '@/modules/gallery/card/ShowCaseCard.vue'
 export default {
   components: { Card },
   props: {

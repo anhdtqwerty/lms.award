@@ -1,4 +1,4 @@
-import axios from '~/plugins/axios'
+import axios from '@/plugins/axios'
 import utils from '@/plugins/utils'
 const SLOT_API = '/slots/'
 const CLASS_API = '/classes/'

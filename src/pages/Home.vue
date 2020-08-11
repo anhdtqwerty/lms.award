@@ -21,9 +21,10 @@
 </template>
 
 <script>
-import Featured from '~/modules/home/Featured.vue'
-import MajorList from '~/modules/home/Major.vue'
-import { Showcase, Major } from '~/plugins/api.js'
+import Featured from '@/modules/home/Featured.vue'
+import MajorList from '@/modules/home/Major.vue'
+import { Showcase, Major } from '@/plugins/api.js'
+const DEPARTMENT_ID = "5d9a197d26689a901d8d945d"
 export default {
   components: {
     Featured,
@@ -46,12 +47,12 @@ export default {
     },
     async fetchData () {
       const majors = await Major.fetch({
-        department: '5d9a197d26689a901d8d945d'
+        department: DEPARTMENT_ID
       })
       this.rootMajors = majors.filter(m => m.type === 'root')
       this.majors = majors.filter(m => m.type !== 'root')
       const showcases = await Showcase.fetch({
-        department: '5d9a197d26689a901d8d945d'
+        department: DEPARTMENT_ID
       })
       this.featuredShowcases = showcases.filter(s => s.position === 'home-page')
       this.showcases = showcases

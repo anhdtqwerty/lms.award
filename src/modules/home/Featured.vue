@@ -1,6 +1,6 @@
 <template>
   <div class="py-6 px-4">
-    <p class="headline font-weight-bold ma-0">Sản phẩm nổi bật</p>
+    <p class="headline ma-0">Sản phẩm nổi bật</p>
     <v-carousel cycle style="max-height: 600px" show-arrows-on-hover hide-delimiters>
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
         <v-layout class="py-6">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Card from '~/modules/home/card/FreaturedCard.vue'
+import Card from '@/modules/home/card/FreaturedCard.vue'
 export default {
   components: { Card },
   props: {

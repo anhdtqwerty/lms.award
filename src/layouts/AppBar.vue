@@ -1,69 +1,88 @@
 <template>
-  <v-app-bar fixed class="elevation-0 app-bar" app height="110px">
-    <v-img src="/logo.svg" height="80%" max-width="180px" contain class="mb-12" />
-    <v-spacer />
-    <v-col
-      col="12"
-      md="10"
-      sm="10"
-      xs="12"
-      lg="9"
-      class="hidden-sm-and-down"
-    >
-      <v-row justify="end">
-        <v-btn text small href="/" class="ml-4">TRANG CHỦ</v-btn>
-        <v-btn text small href="https://www.monsterlab.vn/khoa-hoc-ngan-han/" target="_blank" class="ml-4">KHÓA DÀI HẠN</v-btn>
-        <v-btn text small href="https://www.monsterlab.vn/khoa-hoc-dai-han/" class="ml-4">KHÓA NGẮN HẠN</v-btn>
-        <v-btn text small href="https://www.monsterlab.vn/dang-ky-opencamp/" class="ml-4 active">SẢN PHẨM HỌC VIÊN</v-btn>
-        <v-btn text small class="ml-4">ĐĂNG KÝ</v-btn>
-        <v-btn text small href="https://www.monsterlab.vn/dang-ky-opencamp/" class="m-4">OPEN CAMPUS</v-btn>
-      </v-row>
-      <v-row justify="end" class="tag mt-2 mb-6">
-        <a href="/gallery/5e72e401f1c1b75f045aa1f4">Học Phần nền Tảng</a>
-        <a href="/gallery/5e60e04d36d9ef43ae8aa099">Chuyên Ngành 2D</a>
-        <a href="/gallery/5e60e03836d9ef43ae8aa098">Chuyên Ngành Art</a>
-        <a href="/gallery/5e60e04d36d9ef43ae8aa099">Màu Nước Cơ Bản</a>
-        <a href="/gallery/5e60e04d36d9ef43ae8aa099">Character Sketch</a>
-        <a href="/gallery/5e60e04d36d9ef43ae8aa099" class="mr-4">Character Sketch</a>
-      </v-row>
-    </v-col>
-    <v-divider style="position: absolute; bottom: 0; width: 100%; background-color: black;" />
+  <v-app-bar color="#FDB912" class="elevation-0 app-bar pa-0" app height="90">
+    <div class="hidden-sm-and-down" style="width:100%">
+      <div class="top-container">
+        <div class="top-container-inner">
+        <v-img src="/logo.svg" max-width="180px" class="mr-2"  contai/>
+        <v-img src="/slogan.svg" max-width="180px" contain />
+        </div>
+      </div>
+      
+      <div justify="end" class="bottom-container">
+        <div class="bottom-container-inner">
+        <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">TRANG CHỦ</a>
+        <a href="/gallery/5e72e401f1c1b75f045aa1f4">ĐÀO TẠO DN</a>
+        <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA DÀI HẠN</a>
+        <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA NGẮN HẠN</a>
+        <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a>
+        <a href="/gallery/5e60e04d36d9ef43ae8aa099">ĐĂNG KÝ</a>
+        <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OEN CAMPUS</a>
+        <a href="https://www.monsterlab.vn/dang-ky-opencamp/">BLOG</a>
+        </div>
+      </div>
+    </div>
   </v-app-bar>
 </template>
 
 <script>
 export default {
-  data () {
-    return {}
+  data() {
+    return {};
   }
-}
+};
 </script>
 <style scoped>
-@import url('https://rsms.me/inter/inter.css');
-.app-bar {
-  background-color: white !important;
+
+.top-container {
+  display: flex;
+  width: 100%;
+  height: 54px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top:0;
+  left:0;
 }
-.logo {
-  border-right: solid 1px #000;
+.top-container-inner {
+  display: flex;
+  width: 100%;
+  max-width: 720px;
+  justify-content: start;
+  align-items: flex-end;
 }
 .v-application p {
   margin: 0 !important;
 }
-.tag a {
-  color: black;
+.bottom-container {
+  position: absolute;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  color: white;
+  background-color: #3f2842;
+  width: 100%;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 36px;
+}
+.bottom-container-inner {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  max-width: 720px;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 36px;
+}
+.bottom-container-inner a {
   font-size: 13px;
-  margin-left: 16px;
-  font-family: 'Inter', sans-serif;
   font-weight: 200;
+  color: white;
+  text-decoration: none;
 }
-.active {
-  color: #fdb912 !important;
-  border-bottom: solid 1px #fdb912;
-  font-weight: 900 !important;
-}
-.active .v-btn__content{
-  color: #fdb912 !important;
-  border-bottom: solid 1px #fdb912;
-  font-weight: 900 !important;
-}
+
 </style>

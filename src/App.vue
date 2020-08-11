@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <app-bar />
+
+    <v-content>
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AppBar from "@/layouts/AppBar.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
-</script>
+    AppBar
+  },
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  data: () => ({
+    //
+  })
+};
+</script>
+<style scoped>
+@import url("https://rsms.me/inter/inter.css");
+  .v-main {
+    padding: 60px 0 0 0 !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  body {
+    font-family: 'Inter', sans-serif !important;
+  }
 </style>

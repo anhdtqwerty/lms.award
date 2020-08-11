@@ -1,13 +1,15 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = process.env.baseUrl
+axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+export default axios
+
+
+
 axios.interceptors.response.use(
-  (res) => {
+  res => {
     return res.data
   },
-  (err) => {
+  err => {
     throw err
   }
 )
-
-export default axios

@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import Contact from '~/modules/footer/Contact.vue'
-import ImageViewer from '~/components/ImageViewer.vue'
-import AppBar from '~/layouts/AppBar.vue'
+import Contact from '@/modules/footer/Contact.vue'
+import ImageViewer from '@/components/ImageViewer.vue'
+import AppBar from '@/layouts/AppBar.vue'
 export default {
   components: { Contact, AppBar, ImageViewer },
   data () {

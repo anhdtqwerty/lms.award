@@ -1,5 +1,5 @@
 <template>
-  <div v-if="major" class="mx-auto elevation-0" tile>
+  <div v-if="major" class="mx-2 elevation-0 " tile style="max-width: 300px">
     <v-img
       class="white--text align-end"
       :src="getImage()"
@@ -55,7 +55,7 @@ export default {
         'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
       )
     },
-    show (item) {
+    show () {
       this.displayImage({
         url: this.getImage(),
         subtitle: moment(this.showcase.createdAts).format('DD/MM/YYYY'),

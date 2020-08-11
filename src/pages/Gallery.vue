@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import MajorList from '~/modules/gallery/Major.vue'
-import { Showcase, Major } from '~/plugins/api.js'
+import MajorList from '@/modules/gallery/Major.vue'
+import { Showcase, Major } from '@/plugins/api.js'
 export default {
   components: {
     MajorList
