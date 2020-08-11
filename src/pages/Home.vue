@@ -8,7 +8,7 @@
       :showcases="showcases"
       :background="getColor(index)"
     />
-    <v-img src="/default.svg">
+    <v-img src="/default.svg" class="hidden-sm-and-down">
       <div class="notes">
         <p class="font-weight-bold">Chiêm ngưỡng trực tiếp các Sản phẩm Sáng tạo!</p>
         <p>Nếu bạn ở Hà Nội, hãy ghé thăm và cảm nhận trực tiếp các tác phẩm từ sinh viên của chúng tôi được trưng bày tại không gian của Học viện Nghệ thuật & Thiết kế Monster Lab.</p>
