@@ -1,5 +1,5 @@
 <template>
-  <div v-if="major" class="mx-2 elevation-0 " tile style="max-width: 300px">
+  <div v-if="major" class="mr-4 elevation-0 " tile style="max-width: 300px">
     <v-img
       class="white--text align-end"
       :src="getImage()"

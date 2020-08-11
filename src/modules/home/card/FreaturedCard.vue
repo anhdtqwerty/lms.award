@@ -1,15 +1,15 @@
 <template>
   <div v-if="item" class="mx-auto elevation-0" tile>
     <v-img
-      class="white--text align-end"
+      class="align-end"
       :src="getUrl(item)"
       style="max-height: 320px"
       @click="show(item)"
     />
     <p class="caption my-3 font-weight-thin" style="color: #808080">{{ item.createdAt | getTime }}</p>
-    <p class="title font-weight-black my-2">{{ item.title }}</p>
-    <p class="caption gray--text mb-2">{{ item.description }}</p>
-    <v-btn outlined color="#BDBDBD" small>Xem thêm</v-btn>
+    <p class="title font-weight-black my-2 black--text">{{ item.title }}</p>
+    <p class="caption mb-2 black--text" >{{ item.description }}</p>
+    <v-btn color="#FDB912" depressed small>Xem thêm</v-btn>
   </div>
   <div v-else />
 </template>

@@ -28,7 +28,7 @@ export default {
   },
   data () {
     return {
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth']
+      slides: new Array(Math.floor(this.items.length/2))
     }
   }
 }
