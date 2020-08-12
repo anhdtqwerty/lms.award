@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-bar />
-    <v-navigation-drawer class="hidden-md-and-up" v-model="drawer" fixed app right v-if="isMobile"></v-navigation-drawer>
+    <v-navigation-drawer class="hidden-md-and-up" v-model="navDrawer" fixed app right v-if="isMobile"></v-navigation-drawer>
     <v-content>
       <v-main>
         <router-view />
@@ -12,6 +12,7 @@
 
 <script>
 import AppBar from "@/layouts/AppBar.vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
     AppBar
@@ -19,7 +20,7 @@ export default {
   name: "App",
 
   data: () => ({
-    drawer: null,
+    navDrawer: null,
     items: [
       { title: "Home", icon: "dashboard" },
       { title: "About", icon: "question_answer" }
@@ -28,6 +29,12 @@ export default {
   computed: {
     isMobile() {
       return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
+    },
+    ...mapGetters(["drawer"])
+  },
+  watch: {
+    drawer() {
+      this.navDrawer = true;
     }
   }
 };

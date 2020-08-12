@@ -34,12 +34,13 @@
       v-if="isMobile"
     >
       <v-img src="/logo.svg" max-width="180px" class="mr-2" contain />
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="setDrawer(true)"></v-app-bar-nav-icon>
     </div>
   </v-app-bar>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   data() {
     return {
@@ -50,6 +51,9 @@ export default {
     isMobile() {
       return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
     }
+  },
+  methods: {
+    ...mapActions(['setDrawer'])
   }
 };
 </script>
