@@ -55,6 +55,7 @@ export default {
         department: DEPARTMENT_ID
       })
       this.featuredShowcases = showcases.filter(s => s.position === 'home-page')
+      console.log(this.featuredShowcases)
       this.showcases = showcases
     }
   }

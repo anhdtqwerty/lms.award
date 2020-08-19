@@ -1,21 +1,58 @@
 <template>
   <v-app>
     <app-bar />
-    <v-navigation-drawer class="hidden-md-and-up" v-model="navDrawer" fixed app right v-if="isMobile"></v-navigation-drawer>
+    <v-navigation-drawer
+      class="hidden-md-and-up"
+      v-model="navDrawer"
+      fixed
+      app
+      right
+      v-if="isMobile"
+    >
+      <v-list>
+        <v-list-item>
+          <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">TRANG CHỦ</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/gallery/5e72e401f1c1b75f045aa1f4">ĐÀO TẠO DN</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA DÀI HẠN</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA NGẮN HẠN</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="/gallery/5e60e04d36d9ef43ae8aa099">ĐĂNG KÝ</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OEN CAMPUS</a>
+        </v-list-item>
+        <v-list-item>
+          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">BLOG</a>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-content>
       <v-main>
         <router-view />
       </v-main>
     </v-content>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
 import AppBar from "@/layouts/AppBar.vue";
+import Footer from '@/layouts/Footer.vue'
 import { mapGetters } from "vuex";
 export default {
   components: {
-    AppBar
+    AppBar,
+    Footer
   },
   name: "App",
 

@@ -37,9 +37,11 @@
       <v-app-bar-nav-icon @click.stop="setDrawer(true)"></v-app-bar-nav-icon>
     </div>
   </v-app-bar>
+  
 </template>
 
 <script>
+
 import {mapActions} from 'vuex'
 export default {
   data() {
