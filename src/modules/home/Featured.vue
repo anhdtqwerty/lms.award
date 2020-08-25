@@ -17,19 +17,22 @@
 </template>
 
 <script>
-import Card from '@/modules/home/card/FreaturedCard.vue'
+import Card from "@/modules/home/card/FreaturedCard.vue";
 export default {
   components: { Card },
   props: {
     items: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
-  data () {
-    return {
-      slides: new Array(Math.floor(this.items.length/2))
-    }
-  }
-}
+  created() {
+    console.log(this.items);
+  },
+  computed: {
+    slides() {
+      return new Array(Math.floor(this.items.length / 2));
+    },
+  },
+};
 </script>
