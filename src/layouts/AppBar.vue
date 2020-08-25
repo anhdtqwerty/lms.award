@@ -12,7 +12,7 @@
       <div class="top-container">
         <div class="top-container-inner">
           <v-img src="/logo.svg" max-width="180px" class="mr-2" contain />
-          <v-img class src="/slogan.svg" max-width="180px" contain />
+          <v-img class="mb-1" src="/slogan.svg" max-width="180px" contain />
         </div>
       </div>
       <div justify="end" class="bottom-container hidden-sm-and-down">
