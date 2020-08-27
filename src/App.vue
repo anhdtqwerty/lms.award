@@ -29,7 +29,7 @@
           <a href="/gallery/5e60e04d36d9ef43ae8aa099">ĐĂNG KÝ</a>
         </v-list-item>
         <v-list-item>
-          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OEN CAMPUS</a>
+          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OPEN CAMPUS</a>
         </v-list-item>
         <v-list-item>
           <a href="https://www.monsterlab.vn/dang-ky-opencamp/">BLOG</a>

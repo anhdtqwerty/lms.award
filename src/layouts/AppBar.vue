@@ -17,14 +17,14 @@
       </div>
       <div justify="end" class="bottom-container hidden-sm-and-down">
         <div class="bottom-container-inner">
-          <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">TRANG CHỦ</a>
-          <a href="/gallery/5e72e401f1c1b75f045aa1f4">ĐÀO TẠO DN</a>
+          <a href="https://www.monsterlab.vn">TRANG CHỦ</a>
+          <a href="https://www.monsterlab.vn/daotaodoanhnghiep/">ĐÀO TẠO DN</a>
           <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA DÀI HẠN</a>
-          <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA NGẮN HẠN</a>
+          <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">KHÓA NGẮN HẠN</a>
           <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a>
-          <a href="/gallery/5e60e04d36d9ef43ae8aa099">ĐĂNG KÝ</a>
+          <a href="https://www.monsterlab.vn/dang-ky-hoc/">ĐĂNG KÝ</a>
           <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OEN CAMPUS</a>
-          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">BLOG</a>
+          <a href="https://www.monsterlab.vn/blog/">BLOG</a>
         </div>
       </div>
     </div>
