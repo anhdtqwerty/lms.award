@@ -23,7 +23,7 @@
           <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">KHÓA NGẮN HẠN</a>
           <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a>
           <a href="https://www.monsterlab.vn/dang-ky-hoc/">ĐĂNG KÝ</a>
-          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OEN CAMPUS</a>
+          <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OPEN CAMPUS</a>
           <a href="https://www.monsterlab.vn/blog/">BLOG</a>
         </div>
       </div>
