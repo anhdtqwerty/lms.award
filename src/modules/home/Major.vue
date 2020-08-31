@@ -43,12 +43,11 @@ export default {
         "red lighten-1",
         "deep-purple accent-4"
       ],
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"]
     };
   },
   methods: {
     getShowCase(major) {
-      return this.showcases.find(s => s.major.id === major.id);
+      return this.showcases.find(s => s.major.id === major.id && s.position==='highlight');
     }
   }
 };

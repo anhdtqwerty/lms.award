@@ -47,15 +47,16 @@ export default {
     },
     async fetchData () {
       const majors = await Major.fetch({
-        department: DEPARTMENT_ID
+        department: DEPARTMENT_ID,
+        _sort: 'createdAt:DESC'
       })
       this.rootMajors = majors.filter(m => m.type === 'root')
       this.majors = majors.filter(m => m.type !== 'root')
       const showcases = await Showcase.fetch({
-        department: DEPARTMENT_ID
+        department: DEPARTMENT_ID,
+        _sort: 'createdAt:DESC'
       })
       this.featuredShowcases = showcases.filter(s => s.position === 'home-page')
-      console.log(this.featuredShowcases)
       this.showcases = showcases
     }
   }
