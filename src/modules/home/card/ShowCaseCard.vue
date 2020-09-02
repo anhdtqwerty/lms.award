@@ -48,7 +48,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("view", ["displayImage"]),
+    ...mapMutations( ["displayImage"]),
     getImage() {
       return get(
         this.showcase,

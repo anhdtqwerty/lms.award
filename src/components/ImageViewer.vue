@@ -10,25 +10,30 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 export default {
-  data () {
+  data() {
     return {
-      dialog: false
-    }
+      dialog: false,
+    };
   },
   computed: {
-    ...mapState('view', ['imageViewDialog'])
+    ...mapState(["imageViewDialog"]),
   },
+  created () {
+    console.log(this.imageViewDialog)
+  },
+
   watch: {
-    imageViewDialog () {
-      this.dialog = this.imageViewDialog.show
-    }
-  }
-}
+    imageViewDialog() {
+      console.log(this.imageViewDialog)
+      this.dialog = this.imageViewDialog.show;
+    },
+  },
+};
 </script>
 <style scoped>
 p {
-    margin: 0!important;
+  margin: 0 !important;
 }
 </style>

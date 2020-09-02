@@ -41,18 +41,21 @@
         <router-view />
       </v-main>
     </v-content>
-    <Footer/>
+    <ImageViewer />
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import AppBar from "@/layouts/AppBar.vue";
-import Footer from '@/layouts/Footer.vue'
+import Footer from "@/layouts/Footer.vue";
+import ImageViewer from "@/components/ImageViewer.vue";
 import { mapGetters } from "vuex";
 export default {
   components: {
     AppBar,
-    Footer
+    Footer,
+    ImageViewer
   },
   name: "App",
 
@@ -60,20 +63,20 @@ export default {
     navDrawer: null,
     items: [
       { title: "Home", icon: "dashboard" },
-      { title: "About", icon: "question_answer" }
-    ]
+      { title: "About", icon: "question_answer" },
+    ],
   }),
   computed: {
     isMobile() {
       return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
     },
-    ...mapGetters(["drawer"])
+    ...mapGetters(["drawer"]),
   },
   watch: {
     drawer() {
       this.navDrawer = true;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('view', ['displayImage']),
+    ...mapMutations(['displayImage']),
     getUrl (item) {
       return get(
         item,
