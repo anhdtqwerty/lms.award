@@ -58,7 +58,6 @@ export default {
     ImageViewer
   },
   name: "App",
-
   data: () => ({
     navDrawer: null,
     items: [
