@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getShowCase(major) {
-      return this.showcases.find(s => s.major.id === major.id && s.position==='highlight');
+      return this.showcases.find(s => s.major.id === major.id && (s.position || '').includes('highlight'));
     }
   }
 };

@@ -56,7 +56,7 @@ export default {
         department: DEPARTMENT_ID,
         _sort: 'createdAt:DESC'
       })
-      this.featuredShowcases = showcases.filter(s => s.position === 'home-page')
+      this.featuredShowcases = showcases.filter(s => (s.position || '').includes('home-page'))
       this.showcases = showcases
     }
   }
