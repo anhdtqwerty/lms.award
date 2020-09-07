@@ -48,7 +48,7 @@ export default {
     async fetchData () {
       const majors = await Major.fetch({
         department: DEPARTMENT_ID,
-        _sort: 'createdAt:DESC'
+        _sort: 'createdAt:ASC'
       })
       this.rootMajors = majors.filter(m => m.type === 'root')
       this.majors = majors.filter(m => m.type !== 'root')
