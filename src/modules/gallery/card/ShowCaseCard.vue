@@ -6,7 +6,6 @@
 
 <script>
 import { get } from "lodash";
-import moment from "moment";
 import { mapMutations } from "vuex";
 export default {
   props: {
@@ -14,9 +13,13 @@ export default {
       type: Object,
       default: () => {},
     },
+    showcases: Array,
+    index: Number,
   },
   data() {
-    return {};
+    return {
+      i: 0,
+    };
   },
   methods: {
     ...mapMutations(["displayImage"]),
@@ -27,14 +30,14 @@ export default {
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
     },
+
     show() {
       this.displayImage({
-        url: this.getImage(),
-        subtitle: moment(this.showcase.createdAts).format("DD/MM/YYYY"),
-        title: this.showcase.title,
-        description: this.showcase.description,
+        index: this.index,
+        showcases: this.showcases,
       });
     },
+    next() {},
   },
 };
 </script>

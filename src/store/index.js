@@ -7,6 +7,11 @@ export default new Vuex.Store({
   state: {
     drawer: false,
     imageViewDialog: {
+      images: [],
+      index: 0,
+      subtitle: '',
+      title: '',
+      description: '',
       show: false,
       url: ''
     }
@@ -15,8 +20,10 @@ export default new Vuex.Store({
     setDrawer(state) {
       state.drawer = !state.drawer
     },
-    displayImage(state, { subtitle, title, description, url }) {
+    displayImage(state, { subtitle, title, description, url, index, showcases }) {
       state.imageViewDialog = {
+        index,
+        showcases,
         show: true,
         subtitle,
         title,

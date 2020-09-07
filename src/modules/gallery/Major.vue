@@ -3,14 +3,14 @@
     <p class="headline font-weight-bold ma-0">{{ title }}</p>
     <v-row class="py-6 no-gutters">
       <v-col
-        v-for="showcase in showcases"
+        v-for="(showcase, index) in showcases"
         :key="showcase.id"
         cols="12"
         sm="6"
         md="4"
         lg="3"
       >
-        <card :showcase="showcase" class="pa-1" />
+        <card :showcase="showcase" :showcases="showcases" :index="index" class="pa-1" />
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
