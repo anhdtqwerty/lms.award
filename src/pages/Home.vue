@@ -8,7 +8,10 @@
       :showcases="showcases"
       :background="getColor(index)"
     />
-    <v-img src="https://www.monsterlab.vn/wp-content/uploads/2017/05/monsters2.png" class="hidden-sm-and-down">
+    <v-img
+      src="https://www.monsterlab.vn/wp-content/uploads/2017/05/monsters2.png"
+      class="hidden-sm-and-down"
+    >
       <div class="notes">
         <p class="font-weight-bold">Chiêm ngưỡng trực tiếp các Sản phẩm Sáng tạo!</p>
         <p>Nếu bạn ở Hà Nội, hãy ghé thăm và cảm nhận trực tiếp các tác phẩm từ sinh viên của chúng tôi được trưng bày tại không gian của Học viện Nghệ thuật & Thiết kế Monster Lab.</p>
@@ -21,46 +24,51 @@
 </template>
 
 <script>
-import Featured from '@/modules/home/Featured.vue'
-import MajorList from '@/modules/home/Major.vue'
-import { Showcase, Major } from '@/plugins/api.js'
-const DEPARTMENT_ID = "5d9a197d26689a901d8d945d"
+import Featured from "@/modules/home/Featured.vue";
+import MajorList from "@/modules/home/Major.vue";
+import { Showcase, Major } from "@/plugins/api.js";
+import { get } from "lodash";
+const DEPARTMENT_ID = "5d9a197d26689a901d8d945d";
 export default {
   components: {
     Featured,
-    MajorList
+    MajorList,
   },
-  data () {
+  data() {
     return {
       rootMajors: [],
       majors: [],
       showcases: [],
-      featuredShowcases: []
-    }
+      featuredShowcases: [],
+    };
   },
-  async mounted () {
-    await this.fetchData()
+  async mounted() {
+    await this.fetchData();
   },
   methods: {
-    getColor (index) {
-      return index % 2 === 0 ? '#e5e5e5' : 'white'
+    getColor(index) {
+      return index % 2 === 0 ? "#e5e5e5" : "white";
     },
-    async fetchData () {
+    async fetchData() {
       const majors = await Major.fetch({
         department: DEPARTMENT_ID,
-        _sort: 'createdAt:ASC'
-      })
-      this.rootMajors = majors.filter(m => m.type === 'root')
-      this.majors = majors.filter(m => m.type !== 'root')
+        _sort: "createdAt:ASC",
+      });
+      this.rootMajors = majors.filter((m) => m.type === "root");
+      this.majors = majors.filter(
+        (m) => m.type !== "root" && get(m, "metadata.enableShowcase", false)
+      );
       const showcases = await Showcase.fetch({
         department: DEPARTMENT_ID,
-        _sort: 'createdAt:DESC'
-      })
-      this.featuredShowcases = showcases.filter(s => (s.position || '').includes('home-page'))
-      this.showcases = showcases
-    }
-  }
-}
+        _sort: "createdAt:DESC",
+      });
+      this.featuredShowcases = showcases.filter((s) =>
+        (s.position || "").includes("home-page")
+      );
+      this.showcases = showcases;
+    },
+  },
+};
 </script>
 <style scoped>
 .notes {
