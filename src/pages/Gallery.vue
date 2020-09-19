@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MajorList :title="major.title" :showcases="showcases" />
+    <MajorList :title="major.title" :showcases="showcases" :major="major" />
   </div>
 </template>
 
