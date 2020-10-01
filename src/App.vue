@@ -13,7 +13,7 @@
       <v-list class="">
         <v-divider class="grey darken-2"></v-divider>
         <v-list-item>
-          <a
+          <a 
             href="https://www.monsterlab.vn/khoa-hoc-ngan-han/"
             >TRANG CHỦ</a
           >
@@ -105,7 +105,7 @@ export default {
   },
 };
 </script>
-<style >
+<style scoped >
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600");
 
 
@@ -113,8 +113,5 @@ export default {
   color: white;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-}
-.font-setup {
-  font: "Montserrat", sans-serif !important;
 }
 </style>
