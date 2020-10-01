@@ -9,6 +9,7 @@
       app
       right
       v-if="isMobile"
+      height="100%"
     >
       <v-list class="">
         <v-divider class="grey darken-2"></v-divider>
