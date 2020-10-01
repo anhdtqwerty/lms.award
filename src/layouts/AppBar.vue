@@ -6,13 +6,13 @@
     hide-on-scroll
     class="elevation-0 app-bar pa-0"
     app
-    height="104px"
+    height="124px"
   >
     <div style="width:100%" class=" hidden-sm-and-down">
       <div class="top-container d-flex justify-center align-center">
-        <div class="top-container-inner pt-1">
-          <v-img href="https://www.monsterlab.vn" src="/logo.svg" max-width="300px" class="mr-3" contain />
-          <v-img href="https://www.monsterlab.vn" src="/slogan.svg" max-width="300px" class="mb-1" contain />
+        <div class="top-container-inner pt-4">
+          <a href="https://www.monsterlab.vn"><v-img src="/logo.svg" max-width="300px" class="mr-3" contain /></a>
+          <a href="https://www.monsterlab.vn"><v-img href="" src="/slogan.svg" max-width="300px" class="mb-1" contain /></a>
         </div>
       </div>
       <div class="bottom-container hidden-md-and-down">
@@ -114,4 +114,4 @@ export default {
   padding: 14px;
 }
 
-</style>
+</style>          
