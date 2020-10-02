@@ -6,17 +6,17 @@
     hide-on-scroll
     class="elevation-0 app-bar pa-0"
     app
-    height="90"
+    height="124px"
   >
-    <div style="width:100%" class="hidden-sm-and-down">
-      <div class="top-container">
-        <div class="top-container-inner">
-          <v-img src="/logo.svg" max-width="180px" class="mr-2" contain />
-          <v-img class="mb-1" src="/slogan.svg" max-width="180px" contain />
+    <div style="width:100%" class=" hidden-sm-and-down">
+      <div class="top-container d-flex justify-center align-center">
+        <div class="top-container-inner pt-4">
+          <a href="https://www.monsterlab.vn"><v-img src="/logo.svg" max-width="300px" class="mr-3" contain /></a>
+          <a href="https://www.monsterlab.vn"><v-img href="" src="/slogan.svg" max-width="300px" class="mb-1" contain /></a>
         </div>
       </div>
-      <div justify="end" class="bottom-container hidden-sm-and-down">
-        <div class="bottom-container-inner">
+      <div class="bottom-container hidden-md-and-down">
+        <div class="bottom-container-inner font-weight-bold">
           <a href="https://www.monsterlab.vn">TRANG CHỦ</a>
           <a href="https://www.monsterlab.vn/daotaodoanhnghiep/">ĐÀO TẠO DN</a>
           <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA DÀI HẠN</a>
@@ -30,7 +30,7 @@
     </div>
     <div
       style="width:100%"
-      class="hidden-xs-and-up d-flex justify-space-between"
+      class="hidden-sm-and-up d-flex justify-space-between"
       v-if="isMobile"
     >
       <v-img src="/logo.svg" max-width="180px" class="mr-2" contain />
@@ -60,10 +60,10 @@ export default {
 };
 </script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 .top-container {
   display: flex;
-  width: 100%;
-  height: 54px;
+  width: 90%;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -71,8 +71,9 @@ export default {
   left: 0;
 }
 .top-container-inner {
+  
   display: flex;
-  width: 100%;
+  width: 70%;
   max-width: 720px;
   justify-content: flex-start;
   align-items: flex-end;
@@ -90,25 +91,27 @@ export default {
   background-color: #3f2842;
   width: 100%;
   bottom: 0;
-  width: 100%;
   left: 0;
-  height: 36px;
 }
-.bottom-container-inner {
+.bottom-container-inner {  
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: white;
-  max-width: 720px;
   bottom: 0;
-  width: 100%;
+  width: 80%;
   left: 0;
-  height: 36px;
+}
+.bottom-container-inner :hover{
+  color: #FFB300;
 }
 .bottom-container-inner a {
-  font-size: 13px;
-  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   color: white;
   text-decoration: none;
+  padding: 14px;
 }
-</style>
+
+</style>          

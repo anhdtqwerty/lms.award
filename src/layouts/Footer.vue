@@ -2,20 +2,10 @@
   <div style="background-color: #3F2842;">
     <v-container class="py-16">
       <v-row>
-        <v-col cols="12" sm="12" md="4">
-          <iframe
-            width="100%"
-            height="250"
-            frameborder="0"
-            style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDExgcsNfRWYtjLAJxz_WUVGs2EGSNS8jQ&q=Space+Needle,Seattle+WA"
-            allowfullscreen
-          ></iframe>
-        </v-col>
         <v-col
           cols="12"
           sm="12"
-          md="4"
+          md="6"
           style="background-color: #3F2842; color: white;"
           class="pa-4"
           sm12
@@ -39,7 +29,7 @@
         <v-col
           cols="12"
           sm="12"
-          md="4"
+          md="6"
           style="background-color: #3F2842; color: white;"
           class="pa-4"
           sm12
@@ -50,7 +40,7 @@
           <v-text-field label="Họ Và Tên" solo dense></v-text-field>
           <p class="caption">*Địa Chỉ Email</p>
           <v-text-field label="Email *" solo dense></v-text-field>
-          <v-btn dark color="#aaa">Đăng Ký</v-btn>
+          <v-btn dark color="amber darken-1">Đăng Ký</v-btn>
         </v-col>
       </v-row>
     </v-container>
