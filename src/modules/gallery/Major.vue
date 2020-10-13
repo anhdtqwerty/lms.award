@@ -1,26 +1,11 @@
 <template>
   <div class="py-6 px-4">
     <p class="headline font-weight-bold ma-0">{{ title }}</p>
-
-    <div
-      style="background-color: #f2f2f2; border-radius: 4px"
-      class="pt-6 pl-6 mt-2 d-flex"
-    >
+    <div style="background-color: #F2F2F2; border-radius:4px" class="pt-6 pl-6 mt-2 d-flex">
       <v-select
-        v-show = false
         v-model="data"
-        v-if="major.courses"
+        v-if="major"
         :items="major.courses"
-        item-value="id"
-        item-text="title"
-        dense
-        outlined
-        label="Loại Môn"
-        style="max-width: 200px"
-      ></v-select
-      ><v-select
-        v-model="majorFilter"
-        :items="['Chuyên Ngành', 'Cơ Bản', 'All']"
         item-value="id"
         item-text="title"
         dense
@@ -28,8 +13,8 @@
         label="Môn học"
         style="max-width: 200px"
       ></v-select>
+      <v-btn dense depressed color="#A3A1A1" dark class="ml-2">Áp dụng</v-btn>
     </div>
-
     <v-row class="py-6 no-gutters">
       <v-col
         v-for="(showcase, index) in list"
@@ -39,12 +24,7 @@
         md="4"
         lg="3"
       >
-        <card
-          :showcase="showcase"
-          :showcases="showcases"
-          :index="index"
-          class="pa-1"
-        />
+        <card :showcase="showcase" :showcases="showcases" :index="index" class="pa-1" />
       </v-col>
     </v-row>
     <v-row align="center" justify="center">
@@ -55,7 +35,6 @@
 
 <script>
 import Card from "@/modules/gallery/card/ShowCaseCard.vue";
-import {get} from "lodash"
 export default {
   components: { Card },
   props: {
@@ -75,22 +54,18 @@ export default {
   },
   computed: {
     list() {
-      if (this.majorFilter === "Chuyên Ngành") {
-        return this.showcases.filter((s) => {
-          return get(s.data, "major");
-        });
-      } else if (this.majorFilter === "Cơ Bản") {
-        return this.showcases.filter((s) => {
-          return !get(s.data, "major");
-        });
-      } else {
-        return this.showcases;
-      }
+      if (!this.data) return this.showcases;
+      else
+        return this.showcases.filter(
+          (s) => {
+            console.log(s)
+            return s.course && s.course.id === this.data
+          }
+        );
     },
   },
   data() {
     return {
-      majorFilter: "All",
       data: "",
       startDate: new Date().toISOString(),
       endDate: new Date().toISOString(),

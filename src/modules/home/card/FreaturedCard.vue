@@ -3,7 +3,7 @@
     <v-img
       class="align-end"
       :src="getUrl(item)"
-      style="height: 400px"
+      style="height: 320px"
     />
     <p class="caption my-3 font-weight-thin" style="color: #808080">{{ item.createdAt | getTime }}</p>
     <p class="title font-weight-black my-2 black--text">{{ item.title }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-0 px-4">
+  <div class="py-6 px-4">
     <p class="headline ma-0">Sản phẩm nổi bật</p>
     <v-carousel cycle style="max-height: 600px" show-arrows-on-hover hide-delimiters>
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
