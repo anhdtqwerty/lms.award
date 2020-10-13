@@ -65,7 +65,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <v-main>
+      <v-main class="py-8">
         <router-view />
       </v-main>
     </v-content>

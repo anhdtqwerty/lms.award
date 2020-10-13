@@ -19,7 +19,7 @@ export default {
   },
   async mounted () {
     this.major = await Major.fetchOne(this.$route.params.id)
-    this.showcases = await Showcase.fetch({ major: this.$route.params.id })
+    this.showcases = await Showcase.fetch({ major: this.$route.params.id, _sort: "createdAt:DESC",})
   }
 }
 </script>
