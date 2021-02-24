@@ -1,22 +1,13 @@
 <template>
   <a :href="`/gallery/${major.id}`">
-    <div v-if="major" class="mr-4 elevation-0" tile style="max-width: 300px">
+    <div v-if="major" class="mr-4 elevation-0" tile>
       <v-img
         class="white--text align-end"
         :src="getImage()"
-        style="max-height: 240px;min-height: 240px;"
         @click="show()"
       />
 
-      <p class="subtitle-1 mb-1">{{ major.title }}</p>
-
-      <p class="caption gray--text ma-0">
-        <v-icon x-small>mdi-arrow-left</v-icon>Thông tin
-      </p>
-      <p class="caption gray--text ma-0">
-        Sản phẩm học viên
-        <v-icon x-small>mdi-arrow-right</v-icon>
-      </p>
+      <p class="subtitle-1 pb-n10 white--text">{{ major.title }}</p>
     </div>
     <div v-else />
   </a>

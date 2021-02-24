@@ -2,11 +2,10 @@
   <div>
     <Featured :items="featuredShowcases" />
     <MajorList
-      v-for="(item, index) in rootMajors"
+      v-for="(item) in rootMajors"
       :key="item.id"
       :major="item"
       :showcases="showcases"
-      :background="getColor(index)"
     />
     <v-img
       src="https://www.monsterlab.vn/wp-content/uploads/2017/05/monsters2.png"

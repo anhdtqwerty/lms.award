@@ -1,16 +1,20 @@
 <template>
-  <div class="py-0 px-4">
-    <p class="headline ma-0">Sản phẩm nổi bật</p>
-    <v-carousel cycle style="max-height: 600px" show-arrows-on-hover hide-delimiters>
-      <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-layout class="py-6">
-          <v-flex md6 sm6 class="mr-4">
-            <card :item="items[i *2]" />
-          </v-flex>
-          <v-flex md6 sm6>
-            <card :item="items[i *2 + 1]" />
-          </v-flex>
-        </v-layout>
+  <div>
+    <v-carousel
+      dark
+      cycle
+      :show-arrows="false"
+      hide-delimiter-background
+      v-model="model"
+    >
+      <v-carousel-item v-for="(item, i) in items" :key="i">
+        <v-sheet height="100%" tile>
+          <v-row class="fill-height" align="center" justify="center">
+            <div class="display-3">
+              <card :item="item" />
+            </div>
+          </v-row>
+        </v-sheet>
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -19,6 +23,11 @@
 <script>
 import Card from "@/modules/home/card/FreaturedCard.vue";
 export default {
+  data() {
+    return {
+      model: 0,
+    };
+  },
   components: { Card },
   props: {
     items: {
@@ -26,13 +35,11 @@ export default {
       default: () => [],
     },
   },
-  created() {
-    console.log(this.items);
-  },
-  computed: {
-    slides() {
-      return new Array(Math.floor(this.items.length / 2));
-    },
-  },
 };
 </script>
+
+<style scoped>
+.theme--dark.v-sheet {
+  background-color: black;
+}
+</style>
