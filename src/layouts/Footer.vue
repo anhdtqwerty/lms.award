@@ -1,8 +1,8 @@
 <template>
   <div style="background-color: #3f2842">
-    <v-container class="pa-16">
+    <v-container class="pa-16-smAndUp">
       <v-row>
-        <v-col cols="6">
+        <v-col cols="12" sm="6">
           <p class="mb-2 subtitle-1 white--text">
             <v-icon dark class="mr-2">mdi-home-city-outline</v-icon>MONSTER-LAB
             Học viện nghệ thuật & thiết kế
@@ -16,7 +16,13 @@
             0989 039 866
           </p>
         </v-col>
-        <v-col cols="3" class="d-flex flex-column align-center">
+        <v-col
+          cols="12"
+          sm="3"
+          :class="{
+            'd-flex flex-column align-center': $vuetify.breakpoint.smAndUp,
+          }"
+        >
           <div>
             <p class="mb-2 subtitle-1" style="color: #fdb912">
               <v-icon color="white" class="mr-2">mdi-email</v-icon
@@ -28,7 +34,7 @@
             </p>
           </div>
         </v-col>
-        <v-col cols="3" class="text-center">
+        <v-col cols="12" sm="3" class="text-center">
           <v-icon color="#FDB912" large>mdi-facebook</v-icon>
           <v-icon color="#FDB912" class="ml-4" large>mdi-youtube</v-icon>
         </v-col>

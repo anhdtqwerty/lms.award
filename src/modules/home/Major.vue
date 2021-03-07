@@ -4,8 +4,8 @@
       Chương trình {{ major.title.toLowerCase() }}
     </p>
     <hr />
-    <v-row class="mt-10">
-      <v-col v-for="item in majors" :key="item.id" cols="6">
+    <v-row :no-gutters="$vuetify.breakpoint.smAndDown" class="mt-4">
+      <v-col v-for="item in majors" :key="item.id" cols="12" :sm="12/majors.length">
         <card :major="item" :showcase="getShowCase(item)" />
       </v-col>
     </v-row>
