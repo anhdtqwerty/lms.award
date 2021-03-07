@@ -5,23 +5,26 @@
 </template>
 
 <script>
-import MajorList from '@/modules/gallery/Major.vue'
-import { Showcase, Major } from '@/plugins/api.js'
+import MajorList from "@/modules/gallery/Major.vue";
+import { Showcase, Major } from "@/plugins/api.js";
 export default {
   components: {
-    MajorList
+    MajorList,
   },
-  data () {
+  data() {
     return {
+      showcases: [],
       major: {},
-      showcases: []
-    }
+    };
   },
-  async mounted () {
-    this.major = await Major.fetchOne(this.$route.params.id)
-    this.showcases = await Showcase.fetch({ major: this.$route.params.id, _sort: "createdAt:DESC",})
-  }
-}
+  async mounted() {
+    this.major = await Major.fetchOne(this.$route.params.id);
+    this.showcases = await Showcase.fetch({
+      major: this.$route.params.id,
+      _sort: "createdAt:DESC",
+    });
+  },
+};
 </script>
 <style scoped>
 .notes {

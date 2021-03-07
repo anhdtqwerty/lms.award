@@ -1,5 +1,9 @@
 <template>
   <div class="py-6 px-4">
+    <p>{{ major.root.descriptions }}</p>
+    <div v-for="item in majors" :key="item.id">
+      <p v-if="item.root.id == major.root.id">{{item.title}}</p>
+    </div>
     <p class="headline font-weight-bold ma-0">{{ title }}</p>
 
     <div
@@ -7,7 +11,7 @@
       class="pt-6 pl-6 mt-2 d-flex"
     >
       <v-select
-        v-show = false
+        v-show="false"
         v-model="data"
         v-if="major.courses"
         :items="major.courses"
@@ -55,7 +59,10 @@
 
 <script>
 import Card from "@/modules/gallery/card/ShowCaseCard.vue";
-import {get} from "lodash"
+import { Major } from "@/plugins/api.js";
+import { get } from "lodash";
+const DEPARTMENT_ID = "5d9a197d26689a901d8d945d";
+
 export default {
   components: { Card },
   props: {
@@ -88,18 +95,29 @@ export default {
       }
     },
   },
+  async created() {
+    await this.fetchData();
+    console.log(this.majors)
+  },
+  methods: {
+    async fetchData() {
+      let majors = await Major.fetch({
+        department: DEPARTMENT_ID,
+        _sort: "createdAt:ASC",
+      });
+      this.majors = majors.filter(
+        (m) => m.type !== "root" && get(m, "metadata.enableShowcase", false)
+      );
+    },
+  },
   data() {
     return {
       majorFilter: "All",
       data: "",
       startDate: new Date().toISOString(),
       endDate: new Date().toISOString(),
+      majors: [],
     };
-  },
-  watch: {
-    data() {
-      console.log(this.data);
-    },
   },
 };
 </script>
