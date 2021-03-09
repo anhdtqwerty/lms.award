@@ -1,22 +1,13 @@
 <template>
   <a :href="`/gallery/${major.id}`">
-    <div v-if="major" class="mr-4 elevation-0" tile style="max-width: 300px">
+    <div style="position:relative;" v-if="major" class="mr-4 elevation-0" tile>
       <v-img
         class="white--text align-end"
         :src="getImage()"
-        style="max-height: 240px;min-height: 240px;"
         @click="show()"
       />
 
-      <p class="subtitle-1 mb-1">{{ major.title }}</p>
-
-      <p class="caption gray--text ma-0">
-        <v-icon x-small>mdi-arrow-left</v-icon>Thông tin
-      </p>
-      <p class="caption gray--text ma-0">
-        Sản phẩm học viên
-        <v-icon x-small>mdi-arrow-right</v-icon>
-      </p>
+      <p class="show-case-title subtitle-1">{{ major.title }}</p>
     </div>
     <div v-else />
   </a>
@@ -74,5 +65,15 @@ a p {
 }
 a {
   text-decoration: none !important;
+}
+.show-case-title {
+  margin-top: -100px;
+  padding-top: 40px;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  color: #FDB913;
+  font-weight: bold;
+  background-color: rgba(22, 22, 22, 0.8);
 }
 </style>
