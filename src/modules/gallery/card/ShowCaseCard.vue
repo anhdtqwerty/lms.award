@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- <v-img class="white--text align-end" :src="getImage()" height="280" @click="show()" /> -->
-    <iframe
+    <v-img class="white--text align-end" :src="getImage()" height="280" @click="show()" />
+    <!-- <iframe
       :src="getImage()"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       @click="show()"
-    ></iframe>
+    ></iframe> -->
   </div>
 </template>
 
