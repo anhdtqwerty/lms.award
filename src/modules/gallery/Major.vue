@@ -21,7 +21,7 @@
       </div>
     </div>
     <v-row class="py-6 no-gutters">
-      <v-col class="mb-8" cols="12">
+      <v-col v-if="list.length" class="mb-8" cols="12">
         <v-img :src="list[0].image[0].url" />
       </v-col>
       <v-col

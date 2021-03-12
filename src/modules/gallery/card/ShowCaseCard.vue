@@ -1,6 +1,13 @@
 <template>
   <div>
-    <v-img class="white--text align-end" :src="getImage()" height="280" @click="show()" />
+    <!-- <v-img class="white--text align-end" :src="getImage()" height="280" @click="show()" /> -->
+    <iframe
+      :src="getImage()"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      @click="show()"
+    ></iframe>
   </div>
 </template>
 
@@ -26,8 +33,8 @@ export default {
     getImage() {
       return get(
         this.showcase,
-        "image[0].url]",
-        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        "image[0].url",
+        "https://www.youtube.com/embed/yhP2loYscAc"
       );
     },
 
