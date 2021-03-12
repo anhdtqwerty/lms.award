@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pa-md-16">
     <MajorList :title="major.title" :showcases="showcases" :major="major" />
   </div>
 </template>

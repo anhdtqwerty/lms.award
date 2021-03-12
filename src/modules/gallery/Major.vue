@@ -1,47 +1,35 @@
 <template>
   <div class="py-6 px-4">
-    <p>{{ major.root.descriptions }}</p>
-    <div v-for="item in majors" :key="item.id">
-      <p v-if="item.root.id == major.root.id">{{item.title}}</p>
-    </div>
-    <p class="headline font-weight-bold ma-0">{{ title }}</p>
-
-    <div
-      style="background-color: #f2f2f2; border-radius: 4px"
-      class="pt-6 pl-6 mt-2 d-flex"
+    <p
+      class="mb-1 headline font-weight-bold white--text text-uppercase text-center"
     >
-      <v-select
-        v-show="false"
-        v-model="data"
-        v-if="major.courses"
-        :items="major.courses"
-        item-value="id"
-        item-text="title"
-        dense
-        outlined
-        label="Loại Môn"
-        style="max-width: 200px"
-      ></v-select
-      ><v-select
-        v-model="majorFilter"
-        :items="['Chuyên Ngành', 'Cơ Bản', 'All']"
-        item-value="id"
-        item-text="title"
-        dense
-        outlined
-        label="Môn học"
-        style="max-width: 200px"
-      ></v-select>
+      {{ major.root.descriptions }}
+    </p>
+    <hr />
+    <div class="mt-6 d-flex justify-center">
+      <div v-for="item in majors" :key="item.id">
+        <a
+          style="text-decoration: none; font-size: 18px"
+          :href="`/gallery/${item.id}`"
+          class="white--text text-uppercase mx-8"
+          :class="{ active: item.title == title }"
+          v-if="item.root.id == major.root.id"
+        >
+          {{ item.title }}
+        </a>
+        <hr class="hr2" v-if="item.title == title" />
+      </div>
     </div>
-
     <v-row class="py-6 no-gutters">
+      <v-col class="mb-8" cols="12">
+        <v-img :src="list[0].image[0].url" />
+      </v-col>
       <v-col
         v-for="(showcase, index) in list"
         :key="showcase.id"
         cols="12"
         sm="6"
-        md="4"
-        lg="3"
+        md="3"
       >
         <card
           :showcase="showcase"
@@ -97,7 +85,7 @@ export default {
   },
   async created() {
     await this.fetchData();
-    console.log(this.majors)
+    console.log(this.list);
   },
   methods: {
     async fetchData() {
@@ -121,3 +109,23 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+hr {
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #fdb913;
+  border-width: 2px;
+}
+.hr2 {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #fdb913;
+  border-width: 2px;
+}
+.active {
+  color: #fdb913 !important;
+}
+</style>
