@@ -68,6 +68,7 @@ export default {
       default: () => [],
     },
   },
+  
   computed: {
     list() {
       if (this.majorFilter === "Chuyên Ngành") {
@@ -85,7 +86,6 @@ export default {
   },
   async created() {
     await this.fetchData();
-    console.log(this.list);
   },
   methods: {
     async fetchData() {

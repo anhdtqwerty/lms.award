@@ -1,13 +1,20 @@
 <template>
   <div>
-    <v-img class="white--text align-end" :src="getImage()" height="280" @click="show()" />
-    <!-- <iframe
-      :src="getImage()"
+    <iframe
+      v-if="this.showcase.data"
+      :src="this.showcase.data.link"
+      height="280"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       @click="show()"
-    ></iframe> -->
+    ></iframe>
+    <v-img v-else
+      class="white--text align-end"
+      :src="getImage()"
+      height="280"
+      @click="show()"
+    />
   </div>
 </template>
 
@@ -34,10 +41,9 @@ export default {
       return get(
         this.showcase,
         "image[0].url",
-        "https://www.youtube.com/embed/yhP2loYscAc"
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
     },
-
     show() {
       this.displayImage({
         index: this.index,
