@@ -17,7 +17,7 @@ export default {
       major: {},
     };
   },
-  async mounted() {
+  async created() {
     this.major = await Major.fetchOne(this.$route.params.id);
     this.showcases = await Showcase.fetch({
       major: this.$route.params.id,

@@ -3,7 +3,7 @@
     <p
       class="mb-1 headline font-weight-bold white--text text-uppercase text-center"
     >
-      {{ major.root.descriptions }}
+      {{ descriptions }}
     </p>
     <hr />
     <div class="mt-6 d-flex justify-center">
@@ -22,7 +22,7 @@
     </div>
     <v-row class="py-6 no-gutters">
       <v-col v-if="list.length" class="mb-8" cols="12">
-        <v-img :src="list[0].image[0].url" />
+        <v-img :src="image0" />
       </v-col>
       <v-col
         v-for="(showcase, index) in list"
@@ -86,6 +86,7 @@ export default {
   },
   async created() {
     await this.fetchData();
+    console.log(this.list)
   },
   methods: {
     async fetchData() {
@@ -105,8 +106,18 @@ export default {
       startDate: new Date().toISOString(),
       endDate: new Date().toISOString(),
       majors: [],
-    };
+      descriptions: "",
+      image0: "" 
+    }
   },
+  watch: {
+    major(major){
+      if(major.root) this.descriptions = major.root.descriptions
+    },
+    list(list) {
+      if(list[0].image[0]) this.image0 = list[0].image[0].url
+    }
+  }
 };
 </script>
 
