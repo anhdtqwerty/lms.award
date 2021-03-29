@@ -9,10 +9,11 @@
       allowfullscreen
       @click="show()"
     ></iframe>
-    <v-img v-else
+    <v-img
+      v-else
       class="white--text align-end"
-      :src="getImage()"
       height="280"
+      :src="getImage()"
       @click="show()"
     />
   </div>
@@ -38,11 +39,14 @@ export default {
   methods: {
     ...mapMutations(["displayImage"]),
     getImage() {
-      return get(
+      const imgUrl = get(
         this.showcase,
         "image[0].url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
+      if (!/^http/.test(imgUrl))
+        return `${process.env.VUE_APP_API_ENDPOINT}${imgUrl}`;
+      return imgUrl
     },
     show() {
       this.displayImage({

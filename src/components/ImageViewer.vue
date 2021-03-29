@@ -13,7 +13,7 @@
       color="#FDB912"
       dark
       small
-      style="position:fixed; top: 50%; left: 10px"
+      style="position: fixed; top: 50%; left: 10px"
     >
       <v-icon dark>mdi-chevron-left</v-icon>
     </v-btn>
@@ -25,17 +25,17 @@
       color="#FDB912"
       dark
       small
-      style="position:fixed; top: 50%; right: 10px"
+      style="position: fixed; top: 50%; right: 10px"
     >
       <v-icon dark>mdi-chevron-right</v-icon>
     </v-btn>
     <v-btn
-      @click="dialog=!dialog"
+      @click="dialog = !dialog"
       class="mx-2"
       fab
       color="white"
       small
-      style="position:fixed; top: 10px; right: 10px"
+      style="position: fixed; top: 10px; right: 10px"
     >
       <v-icon dark>mdi-close</v-icon>
     </v-btn>
@@ -80,11 +80,14 @@ export default {
       this.update();
     },
     getImage() {
-      return get(
+      const imgUrl = get(
         this.showcase,
-        `image[0].url]`,
+        "image[0].url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
+      if (!/^http/.test(imgUrl))
+        return `${process.env.VUE_APP_API_ENDPOINT}${imgUrl}`;
+      return imgUrl
     },
     update() {
       this.showcase = this.imageViewDialog.showcases[this.i];
