@@ -68,7 +68,7 @@ export default {
       default: () => [],
     },
   },
-  
+
   computed: {
     list() {
       if (this.majorFilter === "Chuyên Ngành") {
@@ -86,7 +86,6 @@ export default {
   },
   async created() {
     await this.fetchData();
-    console.log(this.list)
   },
   methods: {
     async fetchData() {
@@ -107,17 +106,18 @@ export default {
       endDate: new Date().toISOString(),
       majors: [],
       descriptions: "",
-      image0: "" 
-    }
+      image0: "",
+    };
   },
   watch: {
-    major(major){
-      if(major.root) this.descriptions = major.root.descriptions
+    major(major) {
+      if (major.root) this.descriptions = major.root.descriptions;
     },
     list(list) {
-      if(list[0].image[0]) this.image0 = list[0].image[0].url
-    }
-  }
+      console.log(list);
+      if (list[0].image[0]) this.image0 = list[0].image[0].url;
+    },
+  },
 };
 </script>
 

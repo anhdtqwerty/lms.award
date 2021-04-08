@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <iframe
-      v-if="this.showcase.data"
-      :src="this.showcase.data.link"
-      height="280"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      @click="show()"
-    ></iframe>
+  <div style="position: relative" class="d-flex justify-center flex-column">
     <v-img
-      v-else
       class="white--text align-end"
       height="280"
       :src="getImage()"
       @click="show()"
     />
+    <v-btn
+      class="btn-play elevation-3"
+      @click="show()"
+      v-if="showcase.data && showcase.data.link"
+      icon
+      ><v-icon color="white" x-large>mdi-play-circle-outline</v-icon></v-btn
+    >
   </div>
 </template>
 
@@ -39,14 +36,16 @@ export default {
   methods: {
     ...mapMutations(["displayImage"]),
     getImage() {
+      const provider = get(this.showcase, "image[0].provider", "unknown");
       const imgUrl = get(
         this.showcase,
         "image[0].url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
-      if (!/^http/.test(imgUrl))
+      if (provider === "local")
         return `${process.env.VUE_APP_API_ENDPOINT}${imgUrl}`;
-      return imgUrl
+      else if (provider == "aws-s3") return imgUrl;
+      return "https://cdn.vuetifyjs.com/images/cards/docks.jpg";
     },
     show() {
       this.displayImage({
@@ -58,3 +57,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.btn-play {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0px auto;
+  margin-top: -12px;
+}
+</style>
