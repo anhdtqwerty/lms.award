@@ -20,6 +20,7 @@
         <hr class="hr2" v-if="item.title == title" />
       </div>
     </div>
+    <MajorVideo :major="major" />
     <v-row class="py-6 no-gutters">
       <v-col v-if="list.length" class="mb-8" cols="12">
         <v-img :src="image0" />
@@ -47,12 +48,13 @@
 
 <script>
 import Card from "@/modules/gallery/card/ShowCaseCard.vue";
+import MajorVideo from "@/modules/gallery/MajorVideo.vue"
 import { Major } from "@/plugins/api.js";
 import { get } from "lodash";
 const DEPARTMENT_ID = "5d9a197d26689a901d8d945d";
 
 export default {
-  components: { Card },
+  components: { Card, MajorVideo },
   props: {
     // eslint-disable-next-line vue/require-default-prop
     title: {

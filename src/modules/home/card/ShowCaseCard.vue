@@ -6,7 +6,6 @@
         :src="getImage()"
         @click="show()"
       />
-
       <p class="show-case-title subtitle-1">{{ major.title }}</p>
     </div>
     <div v-else />
@@ -41,11 +40,16 @@ export default {
   methods: {
     ...mapMutations( ["displayImage"]),
     getImage() {
-      return get(
+      const provider = get(this.showcase, "image[0].provider", "unknown");
+      const imgUrl = get(
         this.showcase,
         "image[0].url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
+      if (provider === "local")
+        return `${process.env.VUE_APP_API_ENDPOINT}${imgUrl}`;
+      else if (provider == "aws-s3") return imgUrl;
+      return "https://cdn.vuetifyjs.com/images/cards/docks.jpg";
     },
     show() {
       this.displayImage({

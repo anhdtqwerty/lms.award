@@ -33,11 +33,16 @@ export default {
   methods: {
     ...mapMutations(["displayImage"]),
     getUrl(item) {
-      return get(
+      const provider = get(item, "image[0].provider", "unknown");
+      const imgUrl = get(
         item,
         "image[0].url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
+      if (provider === "local")
+        return `${process.env.VUE_APP_API_ENDPOINT}${imgUrl}`;
+      else if (provider == "aws-s3") return imgUrl;
+      return "https://cdn.vuetifyjs.com/images/cards/docks.jpg";
     },
     show(item) {
       this.displayImage({

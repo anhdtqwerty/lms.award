@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #3f2842">
+  <div style="background-color: #383838">
     <v-container class="pa-16-smAndUp">
       <v-row>
         <v-col cols="12" sm="6">
@@ -42,7 +42,7 @@
     </v-container>
     <div
       style="
-        background-color: #1a0a1f;
+        background-color: #0a0a0a;
         width: 100%;
         color: white;
         font-size: 80%;
@@ -54,7 +54,7 @@
         <v-spacer />
         <p class="pr-4 mb-0 caption">Giới thiệu</p>
         <p class="pr-4 mb-0 caption">Không gian lab</p>
-        <p class="pr-4 mb-0 caption">blog</p>
+        <p class="pr-4 mb-0 caption">Blog</p>
         <p class="pr-4 mb-0 caption">Liên Hệ</p>
       </v-layout>
     </div>

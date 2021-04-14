@@ -88,7 +88,7 @@ export default {
   justify-content: center;
   padding: 0 80px;
   color: white;
-  background-color: #3f2842;
+  background-color: #383838;
   width: 100%;
   bottom: 0;
   left: 0;
