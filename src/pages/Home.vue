@@ -2,23 +2,28 @@
   <div>
     <Featured :items="featuredShowcases" />
     <MajorList
-      v-for="(item) in rootMajors"
+      v-for="item in rootMajors"
       :key="item.id"
       :major="item"
       :showcases="showcases"
     />
-    <v-img
-      src="https://www.monsterlab.vn/wp-content/uploads/2017/05/monsters2.png"
-      class="hidden-sm-and-down"
-    >
-      <!-- <div class="notes">
+    <div class="d-flex justify-center align-center" style="width: 100%">
+      <v-img
+        src="../assets/footer.png"
+        class="hidden-xs-only"
+        width="100%"
+        max-width="1280"
+        contain
+      >
+        <!-- <div class="notes">
         <p class="font-weight-bold">Chiêm ngưỡng trực tiếp các Sản phẩm Sáng tạo!</p>
         <p>Nếu bạn ở Hà Nội, hãy ghé thăm và cảm nhận trực tiếp các tác phẩm từ sinh viên của chúng tôi được trưng bày tại không gian của Học viện Nghệ thuật & Thiết kế Monster Lab.</p>
         <p>
           <v-icon>mdi-google-maps</v-icon>Tầng 5-6 Nhà B, 85 Lương Định Của, Đống Đa, Hà Nội
         </p>
       </div> -->
-    </v-img>
+      </v-img>
+    </div>
   </div>
 </template>
 
