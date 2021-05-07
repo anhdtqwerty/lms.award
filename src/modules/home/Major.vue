@@ -1,12 +1,15 @@
 <template>
-  <div class="text-center">
+  <div class="text-center" style="max-width: 1140px">
     <p class="mt-10 mb-1 headline white--text text-uppercase text-center">
       Chương trình {{ major.title.toLowerCase() }}
     </p>
     <hr />
-    <v-row :no-gutters="$vuetify.breakpoint.smAndDown" class="justify-center mt-4">
-      <v-col v-for="item in majors" :key="item.id" cols="12" sm="6">
-        <card :major="item" :showcase="getShowCase(item)" />
+    <v-row
+      :no-gutters="$vuetify.breakpoint.smAndDown"
+      class="justify-center mt-4"
+    >
+      <v-col v-for="(item, index) in majors" :key="item.id" cols="12" sm="6">
+        <card :major="item" :index="index" :showcase="getShowCase(item)" />
       </v-col>
     </v-row>
   </div>

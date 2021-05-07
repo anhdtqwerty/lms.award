@@ -1,10 +1,12 @@
 <template>
   <a :href="`/gallery/${major.id}`">
-    <div style="position:relative;" v-if="major" class="mr-4 elevation-0" tile>
+    <div style="position: relative" v-if="major" class="elevation-0" tile>
       <v-img
         class="white--text align-end"
         :src="getImage()"
         @click="show()"
+        height="375px"
+        cover
       />
       <p class="show-case-title subtitle-1">{{ major.title }}</p>
     </div>
@@ -22,28 +24,30 @@ export default {
     },
   },
   props: {
+    index: {
+      type: Number,
+      default: () => 0,
+    },
     major: {
       type: Object,
       default: () => {},
     },
-    showcase: {
-      type: Object,
-      default: () => {},
-    },
   },
-
+  created() {
+    console.log(this.major);
+  },
   data() {
     return {
       slides: ["First", "Second", "Third"],
     };
   },
   methods: {
-    ...mapMutations( ["displayImage"]),
+    ...mapMutations(["displayImage"]),
     getImage() {
-      const provider = get(this.showcase, "image[0].provider", "unknown");
+      const provider = get(this.major, "avatar.provider", "unknown");
       const imgUrl = get(
-        this.showcase,
-        "image[0].url",
+        this.major,
+        "avatar.url",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
       );
       if (provider === "local")
@@ -76,7 +80,7 @@ a {
   position: absolute;
   width: 100%;
   height: 100px;
-  color: #FDB913;
+  color: #fdb913;
   font-weight: bold;
   background-color: rgba(22, 22, 22, 0.8);
 }

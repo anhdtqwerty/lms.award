@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex flex-column align-center">
     <Featured :items="featuredShowcases" />
     <MajorList
       v-for="item in rootMajors"
@@ -12,7 +12,7 @@
         src="../assets/footer.png"
         class="hidden-xs-only"
         width="100%"
-        max-width="1280"
+        max-width="1140"
         contain
       >
         <!-- <div class="notes">

@@ -9,7 +9,7 @@
     >
       <v-carousel-item v-for="(item, i) in items" :key="i">
         <v-sheet height="100%" tile>
-          <v-row class="fill-height" align="center" justify="center">
+          <v-row class="fill-height" align="center" justify="center" no-gutters>
             <div class="display-3">
               <card :item="item" />
             </div>
