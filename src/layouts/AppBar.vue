@@ -1,117 +1,103 @@
 <template>
   <v-app-bar
-    color="#FDB912"
-    fixed
     dense
-    hide-on-scroll
-    class="elevation-0 app-bar pa-0"
+    fixed
     app
-    height="124px"
+    hide-on-scroll
+    color="#FDB912"
+    class="elevation-0 px-0"
+    :height="getNavBarHeight"
   >
-    <div style="width:100%" class=" hidden-sm-and-down">
-      <div class="top-container d-flex justify-center align-center">
-        <div class="top-container-inner pt-4">
-          <a href="https://www.monsterlab.vn"><v-img src="/logo.svg" max-width="300px" class="mr-3" contain /></a>
-          <a href="https://www.monsterlab.vn"><v-img href="" src="/slogan.svg" max-width="300px" class="mb-1" contain /></a>
-        </div>
+    <div style="width: 100%" v-if="$vuetify.breakpoint.lgAndUp">
+      <div
+        style="max-width: 1140px; height: 90px"
+        class="mx-auto d-flex align-center"
+      >
+        <a href="https://www.monsterlab.vn"
+          ><v-img src="/full-logo.png" max-width="540px" contain
+        /></a>
       </div>
-      <div class="bottom-container hidden-md-and-down">
-        <div class="bottom-container-inner font-weight-bold">
+      <div class="nav-menu">
+        <div
+          style="max-width: 1140px; height: 55px"
+          class="mx-auto d-flex align-center justify-space-between"
+        >
           <a href="https://www.monsterlab.vn">TRANG CHỦ</a>
           <a href="https://www.monsterlab.vn/daotaodoanhnghiep/">ĐÀO TẠO DN</a>
           <a href="https://www.monsterlab.vn/khoa-hoc-dai-han/">KHÓA DÀI HẠN</a>
-          <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">KHÓA NGẮN HẠN</a>
+          <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/"
+            >KHÓA NGẮN HẠN</a
+          >
           <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a>
+          <a href="https://award.monsterlab.vn/">SẢN PHẨM HỌC VIÊN</a>
           <a href="https://www.monsterlab.vn/dang-ky-hoc/">ĐĂNG KÝ</a>
           <a href="https://www.monsterlab.vn/dang-ky-opencamp/">OPEN CAMPUS</a>
           <a href="https://www.monsterlab.vn/blog/">BLOG</a>
         </div>
       </div>
     </div>
-    <div
-      style="width:100%"
-      class="hidden-sm-and-up d-flex justify-space-between"
-      v-if="isMobile"
-    >
-      <v-img src="/logo.svg" max-width="180px" class="mr-2" contain />
+    <div style="width: 100%" class="d-flex align-center" v-else>
+      <v-img
+        class="mt-n2"
+        src="/full-logo.png"
+        max-width="480px"
+        v-if="$vuetify.breakpoint.smAndUp"
+        contain
+      />
+      <v-img
+        class="mt-n1 ml-4"
+        max-width="180px"
+        src="/logo.svg"
+        v-else
+        contain
+      />
+      <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click.stop="setDrawer(true)"></v-app-bar-nav-icon>
     </div>
   </v-app-bar>
-  
 </template>
 
 <script>
-
-import {mapActions} from 'vuex'
+import { mapActions } from "vuex";
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
   computed: {
-    isMobile() {
-      return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
-    }
+    getNavBarHeight() {
+      if (this.$vuetify.breakpoint.lgAndUp) return "145px";
+      else return "90px";
+    },
   },
   methods: {
-    ...mapActions(['setDrawer'])
-  }
+    ...mapActions(["setDrawer"]),
+  },
 };
 </script>
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-.top-container {
-  display: flex;
-  width: 90%;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.top-container-inner {
-  
-  display: flex;
-  width: 70%;
-  max-width: 720px;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 .v-application p {
   margin: 0 !important;
 }
-.bottom-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 80px;
-  color: white;
+.nav-menu {
   background-color: #383838;
   width: 100%;
-  bottom: 0;
-  left: 0;
 }
-.bottom-container-inner {  
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  bottom: 0;
-  width: 80%;
-  left: 0;
+.nav-menu a:hover {
+  color: #ffb300;
 }
-.bottom-container-inner :hover{
-  color: #FFB300;
-}
-.bottom-container-inner a {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: white;
+.nav-menu a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
   text-decoration: none;
-  padding: 14px;
 }
-
-</style>          
+</style>    
+<style>
+.v-toolbar__content {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+</style>      

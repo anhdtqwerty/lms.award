@@ -1,18 +1,20 @@
 <template>
   <div class="d-flex flex-column align-center">
-    <Featured :items="featuredShowcases" />
+    <div style="max-width: 1140px" class="mx-auto">
+      <Featured :items="featuredShowcases" />
+    </div>
     <MajorList
       v-for="item in rootMajors"
       :key="item.id"
       :major="item"
       :showcases="showcases"
     />
-    <div class="d-flex justify-center align-center" style="width: 100%">
+    <div class="d-flex justify-center align-center">
       <v-img
         src="../assets/footer.png"
         class="hidden-xs-only"
-        width="100%"
-        max-width="1140"
+        height="auto"
+        max-width="1140px"
         contain
       >
         <!-- <div class="notes">

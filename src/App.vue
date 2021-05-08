@@ -2,16 +2,16 @@
   <v-app id="app">
     <app-bar />
     <v-navigation-drawer
-      class="hidden-md-and-up pt-16 font-setup"
+      class="pt-16 font-setup"
       color="#363636"
       v-model="navDrawer"
       fixed
       app
       right
-      v-if="isMobile"
       height="100%"
+      v-if="isMobile"
     >
-      <v-list class="">
+      <v-list class="nav-menu">
         <v-divider class="grey darken-2"></v-divider>
         <v-list-item>
           <a href="https://www.monsterlab.vn/khoa-hoc-ngan-han/">TRANG CHỦ</a>
@@ -34,6 +34,11 @@
         ><v-divider class="grey darken-2"></v-divider>
         <v-list-item>
           <a href="https://www.monsterlab.edu.vn">KHÓA ONLINE</a> </v-list-item
+        ><v-divider class="grey darken-2"></v-divider>
+        <v-list-item>
+          <a href="https://award.monsterlab.vn/"
+            >SẢN PHẨM HỌC VIÊN</a
+          > </v-list-item
         ><v-divider class="grey darken-2"></v-divider>
         <v-list-item>
           <a href="/gallery/5e60e04d36d9ef43ae8aa099">ĐĂNG KÝ</a> </v-list-item
@@ -81,7 +86,7 @@ export default {
   }),
   computed: {
     isMobile() {
-      return this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs;
+      return this.$vuetify.breakpoint.mdAndDown;
     },
     ...mapGetters(["drawer"]),
   },
@@ -103,5 +108,13 @@ export default {
 
 #app {
   background-color: black;
+}
+.nav-menu a {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  text-decoration: none;
 }
 </style>

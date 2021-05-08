@@ -1,6 +1,6 @@
 <template>
-  <div v-if="item" class="mx-auto elevation-0" style="max-width: 1140px" tile>
-    <v-img class="align-end" width="1140px" :src="getUrl(item)" />
+  <div v-if="item" width="100%" class="mx-auto elevation-0" tile>
+    <v-img class="align-end" :src="getUrl(item)" contain />
     <v-btn
       v-if="item.link"
       color="#FDB912"
@@ -55,3 +55,8 @@ export default {
   },
 };
 </script>
+<style>
+.v-image__image--cover {
+  background-size: 100% auto !important;
+}
+</style>

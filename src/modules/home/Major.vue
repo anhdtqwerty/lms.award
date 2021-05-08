@@ -8,7 +8,14 @@
       :no-gutters="$vuetify.breakpoint.smAndDown"
       class="justify-center mt-4"
     >
-      <v-col v-for="(item, index) in majors" :key="item.id" cols="12" sm="6">
+      <v-col
+        v-for="(item, index) in majors"
+        :key="item.id"
+        cols="12"
+        md="6"
+        xs="12"
+        sm="12"
+      >
         <card :major="item" :index="index" :showcase="getShowCase(item)" />
       </v-col>
     </v-row>

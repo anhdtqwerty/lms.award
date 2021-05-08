@@ -4,15 +4,17 @@
       dark
       cycle
       :show-arrows="false"
-      hide-delimiter-background
       v-model="model"
+      hide-delimiter-background
     >
-      <v-carousel-item v-for="(item, i) in items" :key="i">
-        <v-sheet height="100%" tile>
+      <v-carousel-item
+        v-for="(item, i) in items"
+        :key="i"
+        transition="fade-transition"
+      >
+        <v-sheet max-width="1140px" tile>
           <v-row class="fill-height" align="center" justify="center" no-gutters>
-            <div class="display-3">
-              <card :item="item" />
-            </div>
+            <card :item="item" />
           </v-row>
         </v-sheet>
       </v-carousel-item>
