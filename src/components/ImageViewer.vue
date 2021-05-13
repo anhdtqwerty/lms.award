@@ -1,66 +1,79 @@
 <template>
-  <v-dialog v-model="dialog" max-width="1024" persistent>
-    <v-card v-if="imageViewDialog" class="pa-2">
-      <div
-        v-if="
-          this.showcase.data && this.showcase.data.link && isLinkContainIframe
-        "
-        v-html="showcase.data.link"
-        class="iframe-container"
-      ></div>
-      <div
-        v-else-if="
-          this.showcase.data && this.showcase.data.link && !isLinkContainIframe
-        "
-        class="iframe-container"
-      >
-        <iframe
-          :src="this.showcase.data.link"
-          height="280"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          @click="show()"
-        ></iframe>
+  <v-dialog v-model="dialog" max-width="1024" overlay-opacity="0.9" persistent>
+    <div class="d-flex flex-column">
+      <div v-if="imageViewDialog" class="pa-0 d-flex align-center">
+        <v-btn
+          @click="prev()"
+          class="mx-2"
+          dark
+          small
+          icon
+          width="48px"
+          height="48px"
+        >
+          <v-img src="../assets/prev.png" max-width="24px"></v-img>
+        </v-btn>
+        <div
+          v-if="
+            this.showcase.data && this.showcase.data.link && isLinkContainIframe
+          "
+          v-html="showcase.data.link"
+          class="iframe-container"
+        ></div>
+        <div
+          v-else-if="
+            this.showcase.data &&
+            this.showcase.data.link &&
+            !isLinkContainIframe
+          "
+          class="iframe-container"
+        >
+          <iframe
+            :src="this.showcase.data.link"
+            height="280"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            @click="show()"
+          ></iframe>
+        </div>
+        <v-img
+          class="white--text align-end"
+          max-width="896"
+          :src="url"
+          contain
+          v-else
+        />
+        <v-btn
+          @click="next()"
+          class="mx-2"
+          dark
+          small
+          icon
+          width="48px"
+          height="48px"
+        >
+          <v-img src="../assets/next.png" max-width="24px"></v-img>
+        </v-btn>
       </div>
-      <v-img class="white--text align-end" :src="url" v-else />
-      <p class="caption py-2">{{ subtitle }}</p>
-      <p class="h6 font-weight-black pt-4 pb-2">{{ title }}</p>
-      <p class="body-2">{{ description }}</p>
-    </v-card>
-    <v-btn
-      @click="prev()"
-      class="mx-2"
-      fab
-      color="#FDB912"
-      dark
-      small
-      style="position: absolute; top: 50%; left: 10px"
-    >
-      <v-icon dark>mdi-chevron-left</v-icon>
-    </v-btn>
-
-    <v-btn
-      @click="next()"
-      class="mx-2"
-      fab
-      color="#FDB912"
-      dark
-      small
-      style="position: absolute; top: 50%; right: 10px"
-    >
-      <v-icon dark>mdi-chevron-right</v-icon>
-    </v-btn>
-    <v-btn
-      @click="dialog = !dialog"
-      class="mx-2"
-      fab
-      color="white"
-      small
-      style="position: absolute; top: 10px; right: 10px"
-    >
-      <v-icon dark>mdi-close</v-icon>
-    </v-btn>
+      <div class="d-flex">
+        <v-spacer></v-spacer>
+        <span style="color: #fdb912; margin-right: 64px" class="pt-4 pb-2">{{
+          title
+        }}</span>
+      </div>
+      <v-btn
+        @click="dialog = !dialog"
+        class="mx-2"
+        small
+        icon
+        width="48px"
+        height="48px"
+        style="position: absolute; top: 10px; right: 10px"
+      >
+        <v-img src="../assets/close.png" max-width="24px"></v-img>
+      </v-btn>
+    </div>
   </v-dialog>
 </template>
 
@@ -148,6 +161,9 @@ p {
 </style>
 
 <style>
+.v-dialog {
+  box-shadow: none !important;
+}
 .iframe-container {
   position: relative;
   width: 100%;
