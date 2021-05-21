@@ -1,16 +1,17 @@
 <template>
-  <v-dialog v-model="dialog" max-width="1024" overlay-opacity="0.9" persistent>
-    <div class="d-flex flex-column">
-      <div v-if="imageViewDialog" class="pa-0 d-flex align-center">
-        <v-btn
-          @click="prev()"
-          class="mx-2"
-          dark
-          small
-          icon
-          width="48px"
-          height="48px"
-        >
+  <v-dialog
+    v-model="dialog"
+    max-width="1024"
+    overlay-opacity="0.8"
+    :fullscreen="$vuetify.breakpoint.smAndDown"
+  >
+    <div class="d-flex flex-column" style="height: 100%">
+      <div
+        v-if="imageViewDialog"
+        class="pa-0 d-flex align-center justify-center img-max-height"
+        style="height: 100%"
+      >
+        <v-btn @click="prev()" dark small icon width="48px" height="48px">
           <v-img src="../assets/prev.png" max-width="24px"></v-img>
         </v-btn>
         <div
@@ -38,29 +39,22 @@
           ></iframe>
         </div>
         <v-img
-          class="white--text align-end"
-          max-width="896"
+          class="white--text align-end img-max-width"
+          :height="maxImageHeight"
           :src="url"
           contain
           v-else
         />
-        <v-btn
-          @click="next()"
-          class="mx-2"
-          dark
-          small
-          icon
-          width="48px"
-          height="48px"
-        >
+        <v-btn @click="next()" dark small icon width="48px" height="48px">
           <v-img src="../assets/next.png" max-width="24px"></v-img>
         </v-btn>
       </div>
-      <div class="d-flex">
-        <v-spacer></v-spacer>
-        <span style="color: #fdb912; margin-right: 64px" class="pt-4 pb-2">{{
-          title
-        }}</span>
+      <div class="d-flex justify-center">
+        <span
+          style="color: #fdb912; min-height: 96px"
+          class="d-flex align-center py-4"
+          >{{ title }}</span
+        >
       </div>
       <v-btn
         @click="dialog = !dialog"
@@ -91,6 +85,10 @@ export default {
       description: "",
       url: "",
       showcase: {},
+      window: {
+        width: 0,
+        height: 0,
+      },
     };
   },
   computed: {
@@ -107,9 +105,16 @@ export default {
         return false;
       return true;
     },
+    maxImageHeight() {
+      return this.window.height * 0.9 - 96;
+    },
   },
   created() {
-    console.log(this.imageViewDialog);
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.handleResize);
   },
   methods: {
     prev() {
@@ -146,6 +151,10 @@ export default {
       this.showcases = this.imageViewDialog.showcases;
       this.update();
     },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
   },
   watch: {
     imageViewDialog() {
@@ -176,5 +185,13 @@ p {
   top: 0;
   height: 100% !important;
   width: 100% !important;
+}
+.img-max-width {
+  max-width: calc(100% - 48px - 48px - 24px - 24px);
+}
+@media only screen and (max-width: 1023px) {
+  .v-dialog {
+    background: rgba(0, 0, 0, 0.8);
+  }
 }
 </style>
