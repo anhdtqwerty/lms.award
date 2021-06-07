@@ -2,9 +2,11 @@
   <div style="position: relative" class="d-flex justify-center flex-column">
     <v-img
       class="white--text align-end"
-      height="280"
+      max-height="280"
+      aspect-ratio="1.6667"
       :src="getImage()"
       @click="show()"
+      cover
     />
     <v-btn
       class="btn-play elevation-3"
