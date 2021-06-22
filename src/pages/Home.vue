@@ -68,9 +68,10 @@ export default {
         department: DEPARTMENT_ID,
         _sort: "createdAt:DESC",
       });
-      this.featuredShowcases = showcases.filter((s) =>
-        (s.position || "").includes("home-page")
-      );
+      this.featuredShowcases = await Showcase.fetch({
+        department: DEPARTMENT_ID,
+        position_contains: "home-page",
+      });
       this.showcases = showcases;
     },
   },
